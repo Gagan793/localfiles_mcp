@@ -34,3 +34,5 @@ def prompt_read_file(filename: str) -> str:
     """
     return f"Read and display the contents of the file named '{filename}'."
 
+def main():
+    mcp.run()
