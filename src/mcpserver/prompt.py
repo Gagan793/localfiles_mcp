@@ -33,6 +33,11 @@ def prompt_read_file(filename: str) -> str:
         filename: Name of the file to read.
     """
     return f"Read and display the contents of the file named '{filename}'."
+def main():
+    # Optional: change host/port if you want it remotely accessible
+    mcp.run()
+    # mcp.run(host="0.0.0.0", port=8081)
 
 if __name__ == "__main__":
-    mcp.run()
+    main()
+
