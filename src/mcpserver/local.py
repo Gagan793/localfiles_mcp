@@ -175,5 +175,4 @@ def prompt_read_file(filename: str) -> str:
     """
     return f"Read and display the contents of the file named '{filename}'."
 
-if __name__ == "__main__":
-    mcp.run()
+
