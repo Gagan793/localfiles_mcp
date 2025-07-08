@@ -143,3 +143,5 @@ def get_resolved_path(filename: str = "default_file.txt", directory: str = None)
         return f"Error resolving path: {e}"
 
 
+def main():
+    mcp.run()
