@@ -3,12 +3,7 @@
 This document explains two MCP (Machine Callable Plugin) servers implemented in Python using `FastMCP` from the `mcp` package. These allow natural language tools to be registered for use by Claude or other AI agents.
 
 ---
-
-## 1. LocalNotes: File Management Tools
-
-### Description
-
-`localnotes.py` provides basic file operations restricted to the user’s home directory:
+### LocalNotes: File Management Tools and prompts generator
 
 * Create a new file with content
 * Append notes to an existing file
@@ -24,15 +19,7 @@ This document explains two MCP (Machine Callable Plugin) servers implemented in 
 | `read_notes`        | Read content of a specified file                         |
 | `get_resolved_path` | Return full absolute file path                           |
 
-### Security
 
-* Files can only be read/written within the user's home directory.
-* Paths are sanitized using `_resolve_directory_path()`.
-
-
-## 2. Prompt Generator Tools (`prompt.py`)
-
-### Description
 
 This MCP server defines prompt-generating tools. These return text prompts suitable for LLMs to execute indirectly.
 
@@ -58,18 +45,24 @@ This MCP server defines prompt-generating tools. These return text prompts suita
 ---
 
 ## Optional Testing with CLI
-
-```bash
-# Launch server
-uv run --with mcp[cli] mcp run localnotes.py
-
-# Test tool
-mcp call create_new_file --args '{"filename": "demo.txt", "content": "Hello from MCP!"}'
-```
+mcp install local.py
 
 ---
 ### Add it to package manager (github)
+uploading code to github
 uvx --from git+https://github.com/Gagan793/mcpserver.git mcp-server 
 
 ### Claude Usage 
+{
+  "mcpServers": {
+    "localfiles": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "https://github.com/Gagan793/localfiles_mcp.git",
+        "mcp-server"
+      ]
+    }
+  }
+}
 
