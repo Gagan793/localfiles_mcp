@@ -141,8 +141,11 @@ def get_resolved_path(filename: str = "default_file.txt", directory: str = None)
         return f"Error: {ve}"
     except Exception as e:
         return f"Error resolving path: {e}"
+def main():
+    # Optional: change host/port if you want it remotely accessible
+    mcp.run()
+    # mcp.run(host="0.0.0.0", port=8081)
 
 if __name__ == "__main__":
-    mcp.run()
-# if __name__ == "__main__":
-#     mcp.run(host="0.0.0.0", port=8081)  # <-- run on all interfaces, TCP port 8081
+    main()
+
